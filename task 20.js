@@ -21,6 +21,20 @@ function render(){
 		
 	}
 	container.innerHTML = inner;
+	spanDel(container,data);
+}
+
+
+function spanDel(elem,arr){
+	var list = elem.childNodes;
+	for(var i in list){
+		(function(index){
+			list[index].onclick = function(){
+				arr.splice(index,1);
+				render();
+			}
+		}(i))
+	}
 }
 
 
